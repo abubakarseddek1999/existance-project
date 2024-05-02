@@ -54,15 +54,15 @@ const MENU_ITEMS: MenuItemTypes[] = [
     children: [
       {
         key: "email-inbox",
-        label: "Table",
+        label: "Employee salary",
         url: "/apps/JobTask/Table",
-        parentKey: "apps-email",
+        parentKey: "apps-job",
       },
       {
         key: "email-read-email",
-        label: "Read Email",
-        url: "/apps/email/details",
-        parentKey: "apps-email",
+        label: "Pay Slip",
+        url: "/apps/JobTask/PaySlip",
+        parentKey: "apps-job",
       },
      
     ],

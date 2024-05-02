@@ -45,9 +45,6 @@ const Tables = () => {
 
     const [selectedRole, setSelectedRole] = useState(""); // State to hold selected role
 
-    // const handleRoleSelect = (role: string) => {
-    //     setSelectedRole(role);
-    // };
 
     const columns = [
         {
@@ -79,12 +76,14 @@ const Tables = () => {
                 <Dropdown>
                     <Dropdown.Toggle variant="primary" id="dropdown-role">
                         {selectedRole || value}
+                        <i className="uil uil-angle-down"></i>
                     </Dropdown.Toggle>
                     <Dropdown.Menu style={{ minWidth: '400px' }}> {/* Adjust the width as per your requirement */}
                         <Dropdown.Item >Software Developer</Dropdown.Item>
                         <Dropdown.Item >Software Tester</Dropdown.Item>
                         <Dropdown.Item >UI/UX Designer</Dropdown.Item>
                     </Dropdown.Menu>
+                    
                 </Dropdown>
 
 

@@ -3,6 +3,7 @@ import { Navigate, Route, RouteProps } from "react-router-dom";
 
 // components
 import PrivateRoute from "./PrivateRoute";
+import PaySlip from "../pages/apps/JobTask/PaySlip";
 // import Root from "./Root";
 
 // lazy load all the views
@@ -192,9 +193,9 @@ const JobTaskRoute: RoutesProps = {
       route: PrivateRoute,
     },
     {
-      path: "/apps/JobTask/CreateForm",
-      name: "Email Details",
-      element: <CreateForm />,
+      path: "/apps/JobTask/PaySlip",
+      name: "PaySlip",
+      element: <PaySlip />,
       route: PrivateRoute,
     },
     {
