@@ -140,7 +140,7 @@ const FormValidationWithTooltip = () => {
     <>
       <Card>
         <Card.Body>
-          <h4 className="header-title">Bootstrap Validation (Tooltips)</h4>
+          <h4 className="header-title">Bootstrap Validations (Tooltips)</h4>
           <p className="sub-header">
             If your form layout allows it, you can swap the{" "}
             <code>.valid | invalid-feedback</code> classes for{" "}

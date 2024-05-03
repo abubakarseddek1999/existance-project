@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { SetStateAction, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Col, Nav, Row, Tab, Table } from "react-bootstrap";
+import { Card, Col, Modal, Nav, Row, Tab, Table } from "react-bootstrap";
 import FeatherIcons from '../../icons/Feather';
+import CreateForm from './CreateForm';
+import PayrollForm from './PayrollForm';
 
 interface TabContentType {
     id: number;
@@ -75,7 +77,22 @@ const tabContents: TabContentType[] = [
     },
 ];
 
+
+
+
+
 const Payroll = () => {
+    const [activeTab, setActiveTab] = useState("Additions"); // State to hold active tab title
+    const [showModal, setShowModal] = useState(false);
+    const [btnValue, setBtnValue] = useState(""); // State to hold btn value
+
+
+    const handleModalToggle = (btn: SetStateAction<string>) => {
+        setShowModal(!showModal);
+        setBtnValue(btn); // Set btn value based on the parameter
+
+    };
+
     return (
         <>
             <div >
@@ -88,13 +105,13 @@ const Payroll = () => {
             <Card>
                 <Card.Body>
                     <h5 className="header-title mb-3 mt-0">Nav Tabs</h5>
-
-                    <Tab.Container defaultActiveKey="Profile">
+                 
+                    <Tab.Container defaultActiveKey="Additions">
                         <Nav as="ul" variant="tabs">
                             {(tabContents || []).map((tab, index) => {
                                 return (
                                     <Nav.Item as="li" key={index}>
-                                        <Nav.Link eventKey={tab.title}>
+                                        <Nav.Link eventKey={tab.title} onClick={() => setActiveTab(tab.title)}>
                                             <span className="d-block d-sm-none">
                                                 <i className={tab.icon}></i>
                                             </span>
@@ -115,9 +132,9 @@ const Payroll = () => {
                                                     <h4 className="header-title mt-0 mb-1">Striped Rows</h4>
 
                                                     <div>
-                                                        <Link to="/">
-                                                            <button type="button" className="btn btn-primary">+ {tab.btn}</button>
-                                                        </Link>
+
+                                                        <button type="button" className="btn btn-primary" onClick={() => handleModalToggle("Create")} >+ {tab.btn}</button>
+
                                                     </div>
                                                 </div>
 
@@ -147,7 +164,7 @@ const Payroll = () => {
                                                                 <td>{tab?.icon}</td>
                                                                 <td> $ {tab.salary}</td>
                                                                 <td>
-                                                                <i className="bi bi-three-dots-vertical"></i>
+                                                                    <i className="bi bi-three-dots-vertical"></i>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -155,7 +172,7 @@ const Payroll = () => {
                                                                 <td>{tab?.icon}</td>
                                                                 <td>$ {tab.salary}</td>
                                                                 <td>
-                                                                <i className="bi bi-three-dots-vertical"></i>
+                                                                    <i className="bi bi-three-dots-vertical"></i>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -163,7 +180,7 @@ const Payroll = () => {
                                                                 <td>{tab?.icon}</td>
                                                                 <td>$ {tab.salary}</td>
                                                                 <td>
-                                                                <i className="bi bi-three-dots-vertical"></i>
+                                                                    <i className="bi bi-three-dots-vertical"></i>
                                                                 </td>
                                                             </tr>
 
@@ -177,8 +194,21 @@ const Payroll = () => {
                             })}
                         </Tab.Content>
                     </Tab.Container>
+                   
                 </Card.Body>
             </Card >
+
+            <Modal show={showModal} onHide={handleModalToggle} centered>
+                <div className="modal-dialog-scrollable" style={{ maxWidth: '100vw' }}>
+                    <Modal.Header closeButton>
+                        <Modal.Title> Add {activeTab}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        {/* Add your form or content for editing here */}
+                        <PayrollForm btn={btnValue}></PayrollForm>
+                    </Modal.Body>
+                </div>
+            </Modal>
 
         </>
     );
