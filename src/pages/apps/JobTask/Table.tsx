@@ -7,6 +7,7 @@ import { records as data } from "./data";
 import { useNavigate } from 'react-router-dom';
 import { SetStateAction, useState } from 'react';
 import CreateForm from './CreateForm';
+import { Link } from 'react-router-dom';
 
 interface CellProps {
     value: number; // Assuming the salary is a number type
@@ -83,7 +84,7 @@ const Tables = () => {
                         <Dropdown.Item >Software Tester</Dropdown.Item>
                         <Dropdown.Item >UI/UX Designer</Dropdown.Item>
                     </Dropdown.Menu>
-                    
+
                 </Dropdown>
 
 
@@ -102,7 +103,11 @@ const Tables = () => {
             accessor: "payslip",
             sort: false,
             Cell: () => (
-                <Button variant="primary" className="waves-effect waves-light">Payslip</Button>
+                <Link to="/apps/JobTask/PaySlip">
+                    <Button variant="primary" className="waves-effect waves-light">
+                        Generate Slip
+                    </Button>
+                </Link>
             ),
         },
         {

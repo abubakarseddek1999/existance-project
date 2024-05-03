@@ -53,15 +53,21 @@ const MENU_ITEMS: MenuItemTypes[] = [
     icon: "clipboard",
     children: [
       {
-        key: "email-inbox",
+        key: "employ-salary",
         label: "Employee salary",
         url: "/apps/JobTask/Table",
         parentKey: "apps-job",
       },
       {
-        key: "email-read-email",
+        key: "pay-slip",
         label: "Pay Slip",
         url: "/apps/JobTask/PaySlip",
+        parentKey: "apps-job",
+      },
+      {
+        key: "Pay-roll",
+        label: "Payroll Items",
+        url: "/apps/JobTask/Payroll",
         parentKey: "apps-job",
       },
      

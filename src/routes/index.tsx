@@ -4,6 +4,7 @@ import { Navigate, Route, RouteProps } from "react-router-dom";
 // components
 import PrivateRoute from "./PrivateRoute";
 import PaySlip from "../pages/apps/JobTask/PaySlip";
+import Payroll from "../pages/apps/JobTask/Payroll";
 // import Root from "./Root";
 
 // lazy load all the views
@@ -196,6 +197,12 @@ const JobTaskRoute: RoutesProps = {
       path: "/apps/JobTask/PaySlip",
       name: "PaySlip",
       element: <PaySlip />,
+      route: PrivateRoute,
+    },
+    {
+      path: "/apps/JobTask/Payroll",
+      name: "payroll",
+      element: <Payroll />,
       route: PrivateRoute,
     },
     {

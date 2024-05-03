@@ -10,7 +10,7 @@ const PaySlip = () => {
     return (
         <>
             <div className='d-flex justify-content-between' >
-                <div>
+                <div >
                     <p className='fs-1 fw-bold'>PaySlip</p>
                     <p><Link to={"/dashboard/ecommerce"}>Dashboard</Link> / PaySlip</p>
                 </div>
